@@ -2133,6 +2133,8 @@ in {
     openssl = pkgs.openssl_1_1;
   };
 
+  cryptography-fernet-wrapper = callPackage ../development/python-modules/cryptography-fernet-wrapper { };
+
   cryptolyzer = callPackage ../development/python-modules/cryptolyzer { };
 
   cryptoparser = callPackage ../development/python-modules/cryptoparser { };
@@ -10101,6 +10103,8 @@ in {
   simplejson = callPackage ../development/python-modules/simplejson { };
 
   simplekml = callPackage ../development/python-modules/simplekml { };
+
+  simplematrixbotlib = callPackage ../development/python-modules/simplematrixbotlib { };
 
   simplenote = callPackage ../development/python-modules/simplenote { };
 
