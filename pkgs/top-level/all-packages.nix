@@ -35146,6 +35146,8 @@ with pkgs;
 
   xmedcon = callPackage ../applications/science/medicine/xmedcon { };
 
+  xmedcon-gtk2 = callPackage ../applications/science/medicine/xmedcon { useGtk2 = true; };
+
   ### SCIENCE/PHYSICS
 
   dawn = callPackage ../applications/science/physics/dawn {};
