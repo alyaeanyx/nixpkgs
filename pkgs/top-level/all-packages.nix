@@ -1257,6 +1257,10 @@ with pkgs;
 
   auditwheel = callPackage ../tools/package-management/auditwheel { };
 
+  amide = callPackage ../applications/science/medicine/amide {
+    inherit (gnome2) libgnomecanvas GConf gnome_vfs;
+  };
+
   amidst = callPackage ../tools/games/minecraft/amidst { };
 
   asleap = callPackage ../tools/networking/asleap { };
