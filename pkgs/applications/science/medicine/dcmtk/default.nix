@@ -14,6 +14,12 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake ];
   buildInputs = [ libpng zlib libtiff libxml2 openssl libiconv ];
 
+  postPatch = ''
+    # Fix pkg-config library path
+    substituteInPlace CMake/dcmtk.pc.in \
+      --replace '$'{prefix}/@CMAKE_INSTALL_ @CMAKE_INSTALL
+  '';
+
   meta = {
     description = "Collection of libraries and applications implementing large parts of the DICOM standard";
     longDescription = ''
