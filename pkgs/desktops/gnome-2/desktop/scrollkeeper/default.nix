@@ -1,6 +1,14 @@
 { lib, stdenv, fetchurl, pkg-config, perlPackages, libxml2, libxslt, docbook_xml_dtd_42, automake, gettext }:
 
-stdenv.mkDerivation rec {
+let
+  libxml2_29 = libxml2.overrideDerivation (prev: rec {
+    version = "2.9.14";
+    src = fetchurl {
+      url = "mirror://gnome/sources/${prev.pname}/${lib.versions.majorMinor version}/${prev.pname}-${version}.tar.xz";
+      sha256 = "1vnzk33wfms348lgz9pvkq9li7jm44pvm73lbr3w1khwgljlmmv0";
+    };
+  });
+in stdenv.mkDerivation rec {
   pname = "scrollkeeper";
   version = "0.3.14";
 
@@ -16,7 +24,7 @@ stdenv.mkDerivation rec {
   ";
 
   nativeBuildInputs = [ pkg-config ];
-  buildInputs = [ libxml2 libxslt gettext ]
+  buildInputs = [ libxml2_29 libxslt gettext ]
     ++ (with perlPackages; [ perl XMLParser ]);
   configureFlags = [ "--with-xml-catalog=${docbook_xml_dtd_42}/xml/dtd/docbook/catalog.xml" ];
 }
