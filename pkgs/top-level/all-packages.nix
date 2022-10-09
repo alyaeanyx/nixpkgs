@@ -6109,6 +6109,8 @@ with pkgs;
 
   volk = callPackage ../development/libraries/volk { };
 
+  volpack = callPackage ../development/libraries/volpack { };
+
   vorta = libsForQt5.callPackage ../applications/backup/vorta { };
 
   vowpal-wabbit = callPackage ../applications/science/machine-learning/vowpal-wabbit { };
